@@ -68,13 +68,7 @@
 #pragma mark Actions
 
 - (IBAction) revealSelectionInWorkspace:sender {
-	NSWorkspace *wksp = [NSWorkspace sharedWorkspace];
-
-	NSEnumerator *pathsEnum = [[[arrayController selection] valueForKey:@"path"] objectEnumerator];
-	NSString *path;
-	while ((path = [pathsEnum nextObject])) {
-		[wksp selectFile:path inFileViewerRootedAtPath:@""];
-	}
+	[[NSWorkspace sharedWorkspace] selectFile:[arrayController selection] inFileViewerRootedAtPath:@""];
 }
 
 @end
