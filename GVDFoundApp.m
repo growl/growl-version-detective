@@ -41,7 +41,7 @@
 	return version;
 }
 - (NSString *) growlFrameworkVersion {
-	return [[NSBundle bundleWithPath:[[[NSBundle bundleWithPath:path] privateFrameworksPath] stringByAppendingPathComponent:@"Growl.framework"]] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+	return [[NSBundle bundleWithPath:[[[path stringByAppendingPathComponent:@"Contents"] stringByAppendingPathComponent:@"Frameworks"] stringByAppendingPathComponent:@"Growl.framework"]] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
 }
 - (NSString *) path {
 	return path;
