@@ -29,6 +29,7 @@
 	[self willChangeValueForKey:@"query"];
 	query = [[NSMetadataQuery alloc] init];
 	[query setPredicate:[NSPredicate predicateWithFormat:@"(kMDItemContentType = 'com.apple.application-bundle')"]];
+	[query setSortDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:(NSString *)kMDItemDisplayName ascending:YES selector:@selector(localizedCompare:)] autorelease]]];
 	[query setDelegate:self];
 	[self  didChangeValueForKey:@"query"];
 
