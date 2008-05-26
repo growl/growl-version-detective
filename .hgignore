@@ -1,0 +1,13 @@
+syntax: glob
+build
+*.swp
+
+*.mode1
+*.mode2
+*.pbxuser
+*.perspective
+*.perspectivev3
+
+*~.nib
+
+.DS_Store

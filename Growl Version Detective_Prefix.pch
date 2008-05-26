@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Growl Version Detective' target in the 'Growl Version Detective' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
