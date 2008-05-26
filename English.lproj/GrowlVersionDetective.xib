@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="18"/>
+			<integer value="3"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -81,7 +81,7 @@
 														<int key="NSCellFlags2">0</int>
 														<string key="NSContents">Application name</string>
 														<object class="NSFont" key="NSSupport" id="26">
-															<string key="NSName" id="1030811562">LucidaGrande</string>
+															<string key="NSName" id="18790389">LucidaGrande</string>
 															<double key="NSSize">1.100000e+01</double>
 															<int key="NSfFlags">3100</int>
 														</object>
@@ -91,7 +91,7 @@
 														</object>
 														<object class="NSColor" key="NSTextColor" id="772826988">
 															<int key="NSColorSpace">6</int>
-															<string key="NSCatalogName" id="644512620">System</string>
+															<string key="NSCatalogName" id="84043659">System</string>
 															<string key="NSColorName">headerTextColor</string>
 															<object class="NSColor" key="NSColor" id="406493771">
 																<int key="NSColorSpace">3</int>
@@ -102,16 +102,16 @@
 													<object class="NSTextFieldCell" key="NSDataCell" id="811316417">
 														<int key="NSCellFlags">337772096</int>
 														<int key="NSCellFlags2">2048</int>
-														<string key="NSContents" id="1031190467">Text Cell</string>
+														<string key="NSContents" id="404415985">Text Cell</string>
 														<object class="NSFont" key="NSSupport" id="1049642255">
-															<reference key="NSName" ref="1030811562"/>
+															<reference key="NSName" ref="18790389"/>
 															<double key="NSSize">1.300000e+01</double>
 															<int key="NSfFlags">1044</int>
 														</object>
 														<reference key="NSControlView" ref="1007038709"/>
 														<object class="NSColor" key="NSBackgroundColor" id="131143074">
 															<int key="NSColorSpace">6</int>
-															<reference key="NSCatalogName" ref="644512620"/>
+															<reference key="NSCatalogName" ref="84043659"/>
 															<string key="NSColorName">controlBackgroundColor</string>
 															<object class="NSColor" key="NSColor" id="760925227">
 																<int key="NSColorSpace">3</int>
@@ -120,7 +120,7 @@
 														</object>
 														<object class="NSColor" key="NSTextColor" id="102495950">
 															<int key="NSColorSpace">6</int>
-															<reference key="NSCatalogName" ref="644512620"/>
+															<reference key="NSCatalogName" ref="84043659"/>
 															<string key="NSColorName">controlTextColor</string>
 															<reference key="NSColor" ref="406493771"/>
 														</object>
@@ -145,7 +145,7 @@
 													<object class="NSTextFieldCell" key="NSDataCell" id="1049212520">
 														<int key="NSCellFlags">337772096</int>
 														<int key="NSCellFlags2">2048</int>
-														<reference key="NSContents" ref="1031190467"/>
+														<reference key="NSContents" ref="404415985"/>
 														<reference key="NSSupport" ref="1049642255"/>
 														<reference key="NSControlView" ref="1007038709"/>
 														<reference key="NSBackgroundColor" ref="131143074"/>
@@ -167,7 +167,7 @@
 														<reference key="NSSupport" ref="26"/>
 														<object class="NSColor" key="NSBackgroundColor">
 															<int key="NSColorSpace">6</int>
-															<reference key="NSCatalogName" ref="644512620"/>
+															<reference key="NSCatalogName" ref="84043659"/>
 															<string key="NSColorName">headerColor</string>
 															<object class="NSColor" key="NSColor" id="59478221">
 																<int key="NSColorSpace">3</int>
@@ -179,7 +179,7 @@
 													<object class="NSTextFieldCell" key="NSDataCell" id="357150074">
 														<int key="NSCellFlags">337772096</int>
 														<int key="NSCellFlags2">2048</int>
-														<reference key="NSContents" ref="1031190467"/>
+														<reference key="NSContents" ref="404415985"/>
 														<reference key="NSSupport" ref="1049642255"/>
 														<reference key="NSControlView" ref="1007038709"/>
 														<reference key="NSBackgroundColor" ref="131143074"/>
@@ -196,7 +196,7 @@
 											<reference key="NSBackgroundColor" ref="59478221"/>
 											<object class="NSColor" key="NSGridColor">
 												<int key="NSColorSpace">6</int>
-												<reference key="NSCatalogName" ref="644512620"/>
+												<reference key="NSCatalogName" ref="84043659"/>
 												<string key="NSColorName">gridColor</string>
 												<object class="NSColor" key="NSColor">
 													<int key="NSColorSpace">3</int>
@@ -204,7 +204,7 @@
 												</object>
 											</object>
 											<double key="NSRowHeight">1.700000e+01</double>
-											<int key="NSTvFlags">-692060160</int>
+											<int key="NSTvFlags">-759169024</int>
 											<int key="NSColumnAutoresizingStyle">4</int>
 											<int key="NSDraggingSourceMaskForLocal">15</int>
 											<int key="NSDraggingSourceMaskForNonLocal">0</int>
@@ -316,7 +316,7 @@
 							<int key="NSSelectedCol">-1</int>
 							<object class="NSColor" key="NSBackgroundColor" id="539457462">
 								<int key="NSColorSpace">6</int>
-								<reference key="NSCatalogName" ref="644512620"/>
+								<reference key="NSCatalogName" ref="84043659"/>
 								<string key="NSColorName">controlColor</string>
 								<reference key="NSColor" ref="760925227"/>
 							</object>
@@ -663,13 +663,13 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label" id="142741803">value: growlVersion</string>
+						<string key="label" id="279095332">value: growlVersion</string>
 						<reference key="source" ref="410356388"/>
 						<reference key="destination" ref="1001"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="410356388"/>
 							<reference key="NSDestination" ref="1001"/>
-							<reference key="NSLabel" ref="142741803"/>
+							<reference key="NSLabel" ref="279095332"/>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">growlVersion</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
@@ -949,10 +949,10 @@
 					<reference ref="262069993"/>
 					<integer value="0"/>
 					<integer value="1" id="9"/>
-					<string id="900533061">{{327, 365}, {480, 421}}</string>
+					<string id="53598602">{{327, 365}, {480, 421}}</string>
 					<reference ref="9"/>
 					<string>{196, 240}</string>
-					<reference ref="900533061"/>
+					<reference ref="53598602"/>
 					<reference ref="262069993"/>
 					<reference ref="262069993"/>
 					<reference ref="262069993"/>
@@ -1043,8 +1043,8 @@ AhICFgInAigCLwI2AjoCOwJDAkcCSAJOAlICUwJZAl0CXgH/ATACXwJkAmgCdQJ+An8CgAKBAoICgwKE
 AogCiQKSApUCmAKhAqICswK0ArcCugALArsCvQK+AsEC0QLZAtoC3gLjAvUC/QL+Av8DAAMBAwIDAwMF
 AwcDDAMNAxADFQMWAyADIQMiAyMDJgMtAy4DLwM2AzcDOAM/AyEDQANBA0gDSQNKA1EDUgNTA1oDWwNc
 A2MDZANlA2wDbQNuA28DdgN3A3gDlwOaA5sDnQO8A9wD/AP9A/4D/wQABAEEAgQDBAQEBQQGBAcECAQJ
-BAoECwQMBA0EDgQPBBAEEQQSBBMEFAQVBBYEFwQYBBkEHAQfBEwEeQR6AFMEewR8AqsEfQG1BH4EfwSA
-BIEEggCVBIMEhASFBIYEhwEkBIgEiQSKBIsEjASNBI4A+QSPBJAEkQSSBJMElASVBJYElwSYBJkEmgSb
+BAoECwQMBA0EDgQPBBAEEQQSBBMEFAQVBBYEFwQYBBkEHAQfBEwEeQR6AFMEewKrBHwBtQR9BH4EfwSA
+BIEAlQSCBIMEhASFBIYBJASHBIgEiQSKBIsEjASNAPkEjgSPBJAEkQSSBJMElASVBJYElwSYBJkEmgSb
 BJwEnQSgBKMEplUkbnVsbN8QEgANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAA
 IQAiACMAJAAlACYAJwAoACkAKgArACwALQAuAC8AMFZOU1Jvb3RWJGNsYXNzXU5TT2JqZWN0c0tleXNf
 EA9OU0NsYXNzZXNWYWx1ZXNfEBlOU0FjY2Vzc2liaWxpdHlPaWRzVmFsdWVzXU5TQ29ubmVjdGlvbnNb
@@ -1072,7 +1072,7 @@ fQC3AJUAuABiALkAtQBfALwAVACEAL4Av18QH05TRHJhZ2dpbmdTb3VyY2VNYXNrRm9yTm9uTG9jYWxZ
 TlNUdkZsYWdzXE5TSGVhZGVyVmlld18QEU5TQmFja2dyb3VuZENvbG9yXxASTlNBbGxvd3NUeXBlU2Vs
 ZWN0XxAXTlNJbnRlcmNlbGxTcGFjaW5nV2lkdGhfEBlOU0NvbHVtbkF1dG9yZXNpemluZ1N0eWxlXxAY
 TlNJbnRlcmNlbGxTcGFjaW5nSGVpZ2h0WU5TRW5hYmxlZFtOU0dyaWRDb2xvcl8QHE5TRHJhZ2dpbmdT
-b3VyY2VNYXNrRm9yTG9jYWxeTlNUYWJsZUNvbHVtbnNbTlNSb3dIZWlnaHSAEBAAgEIT/////9bAAACA
+b3VyY2VNYXNrRm9yTG9jYWxeTlNUYWJsZUNvbHVtbnNbTlNSb3dIZWlnaHSAEBAAgEIT/////9LAAACA
 FIA8CYAYI0AIAAAAAAAAI0AAAAAAAAAAgBMJgAyAP4AQgBsjQDEAAAAAAABaezQzOCwgMTY4fdcAWgAO
 AFwAXQBYAF4AwgB+AMQAxQDGAF8AfgCYW05TVGFibGVWaWV3gBWAFxEBAIAWgAyAFYAS2wBaAA4AcACP
 AFsAXACQAFgAkQBeAHYAaQCTAM0AlQDOAJcAswBfAJoAaQCzgA6ARIBMgEuAFIAMgCyADoAUWXs0Mzgs
@@ -1203,14 +1203,14 @@ b24gKFJldmVhbCBBcHBsaWNhdGlvbilbU2Nyb2xsIFZpZXdfEBJSZXN1bHRzIENvbnRyb2xsZXJfEB1U
 ZXh0IEZpZWxkIENlbGwgKFRleHQgQ2VsbCktMl8QG1RleHQgRmllbGQgQ2VsbCAoVGV4dCBDZWxsKVZG
 b3JtLTFfEB5Gb3JtIENlbGwgKEZyYW1ld29yayB2ZXJzaW9uOilcRmlsZSdzIE93bmVyXxAdVGV4dCBG
 aWVsZCBDZWxsIChUZXh0IENlbGwpLTHSAA4APgN5BBuAx6DSAA4APgN5BB6Ax6DSAA4APgN5BCGAx68Q
-KgCzApwATAIrAsUCLgHTAEECGgIsAOkAbALPAIMB5QB5As0DiQDqAJgAawDoAm8CxwLGAskAbQBpAs4A
-+ALgAVsCzABqAssCygLIAi0C0AAfAsQBcIAUgIWAC4BlgJKAboBbgAeAdIBogDOAdoC9gEWAUoBJgLeA
-xYA3gBKAYoAcgICAooCggKqAg4AOgLqAKYCTgDaAtIBPgLGArYCngGuAwYACgI+APdIADgA+A3kEToDH
+KgCzApwATAIrAi4B0wBBAhoCLADpAGwCzwCDAeUAeQLNA4kA6gCYAGsA6AJvAscCyQLLAG0AaQLFAPgC
+4AFbAsQAagLMAs4CyAItAsoC0AAfAsYBcIAUgIWAC4BlgG6AW4AHgHSAaIAzgHaAvYBFgFKASYC3gMWA
+N4ASgGKAHICAgKKAqoCxgIOADoCSgCmAk4A2gI+AT4C0gLqAp4BrgK2AwYACgKCAPdIADgA+A3kEToDH
 rxAqBE8EUARRBFIEUwRUBFUEVgRXBFgEWQRaBFsEXARdBF4EXwRgBGEEYgRjBGQEZQRmBGcEaARpBGoE
 awRsBG0EbgRvBHAEcQRyBHMEdAR1BHYEdwR4gOyA7YDugO+A8IDxgPKA84D0gPWA9oD3gPiA+YD6gPuA
 /ID9gP6A/4EBAIEBAYEBAoEBA4EBBIEBBYEBBoEBB4EBCIEBCYEBCoEBC4EBDIEBDYEBDoEBD4EBEIEB
-EYEBEoEBE4EBFIEBFRAHEB0QFhAhEBEQFRAXEAkQGhAiEBIQBRAkE//////////9EAwQFBAIEBsQJxAf
-ECsQHBAoEAsQIBAKECwQEBAlEC0QJhAYECkQLhAeEA3SAA4APgBnBJ+APqDSAA4APgN5BKKAx6DSAA4A
+EYEBEoEBE4EBFIEBFRAHEB0QFhAREBUQFxAJEBoQIhASEAUQJBP//////////RAMEBQQCBAbECcQKxAl
+EBwQIRALECAQChAeEBAQLBAoECYQGBAtECkQLhAfEA3SAA4APgBnBJ+APqDSAA4APgN5BKKAx6DSAA4A
 PgN5BKWAx6DSADcAOASnBKiiBKgAO15OU0lCT2JqZWN0RGF0YQAIABkAIgAnADEAOgA/AEQAUgBUAGYC
 ngKkAu8C9gL9AwsDHQM5A0cDUwNfA20DeAOGA6IDsAPDA9UD7wP5BAYECAQLBA0EDwQSBBQEFgQYBBoE
 HAQeBCEEIwQlBCcEKgQsBC4ENwRDBEUERwRfBGgEcQR8BIEEkASZBKwEtQTABMIExQTHBPAE/QUKBRgF
@@ -1250,7 +1250,7 @@ riXCJekl/yYLJi4mMyZzJpUmoCbDJs8m5CcEJyInKSdKJ1cndyeAJ4IngyeMJ44njyeYJ5on8SfzJ/Un
 9yf5J/sn/Sf/KAEoAygFKAcoCSgLKA0oDygRKBMoFSgXKBkoGygdKB8oISgjKCUoJygpKCsoLSgvKDEo
 Myg1KDcoOSg7KD0oPyhBKEMoRShOKFAopyipKKsorSivKLEosyi1KLcouSi7KL0ovyjBKMMoxSjHKMko
 yyjNKM8o0ijVKNgo2yjeKOEo5CjnKOoo7SjwKPMo9ij5KPwo/ykCKQUpCCkLKQ4pESkTKRUpFykZKRsp
-HSkfKSEpIyklKScpKSkrKTQpNik4KTopPCk+KUApQilEKUYpSClKKUwpTilQKVIpVClWKVgpWilcKV4p
+HSkfKSEpIyklKScpKSkyKTQpNik4KTopPCk+KUApQilEKUYpSClKKUwpTilQKVIpVClWKVgpWilcKV4p
 YClpKWspbCl1KXcpeCmBKYMphCmNKZIAAAAAAAACAgAAAAAAAASpAAAAAAAAAAAAAAAAAAApoQ</bytes>
 		</object>
 	</data>
