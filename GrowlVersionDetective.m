@@ -31,6 +31,8 @@
 	[self  didChangeValueForKey:@"query"];
 
 	[query startQuery];
+
+	[arrayController setFilterPredicate:[NSPredicate predicateWithFormat:@"growlFrameworkVersion != nil"]];
 }
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)app {
 	return YES;
