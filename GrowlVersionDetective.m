@@ -10,6 +10,8 @@
 
 #import "GVDFoundApp.h"
 
+#import "GrowlPathUtilities.h"
+
 @implementation GrowlVersionDetective
 
 - (void) awakeFromNib {
@@ -55,6 +57,10 @@
 
 #pragma mark Accessors
 
+- (NSString *) growlVersion {
+	NSBundle *bundle = [GrowlPathUtilities growlPrefPaneBundle];
+	return [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+}
 - (NSMetadataQuery *) query {
 	return query;
 }

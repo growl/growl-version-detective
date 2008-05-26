@@ -13,6 +13,7 @@
 	NSMetadataQuery *query;
 }
 
+- (NSString *) growlVersion;
 - (NSMetadataQuery *) query;
 
 - (IBAction) revealSelectionInWorkspace:sender;
