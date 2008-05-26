@@ -10,6 +10,7 @@
 		3153077E0DEB3ABA008F5881 /* GrowlVersionDetective.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3153077C0DEB3ABA008F5881 /* GrowlVersionDetective.xib */; };
 		315307880DEB3E94008F5881 /* GrowlVersionDetective.m in Sources */ = {isa = PBXBuildFile; fileRef = 315307870DEB3E94008F5881 /* GrowlVersionDetective.m */; };
 		3153078B0DEB3E9F008F5881 /* GVDFoundApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 3153078A0DEB3E9F008F5881 /* GVDFoundApp.m */; };
+		315307FF0DEB62E6008F5881 /* GrowlPathUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 315307FE0DEB62E6008F5881 /* GrowlPathUtilities.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -29,6 +30,9 @@
 		315307870DEB3E94008F5881 /* GrowlVersionDetective.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlVersionDetective.m; sourceTree = "<group>"; };
 		315307890DEB3E9F008F5881 /* GVDFoundApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVDFoundApp.h; sourceTree = "<group>"; };
 		3153078A0DEB3E9F008F5881 /* GVDFoundApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVDFoundApp.m; sourceTree = "<group>"; };
+		315307FD0DEB62E6008F5881 /* GrowlPathUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowlPathUtilities.h; path = "From Growl/GrowlPathUtilities.h"; sourceTree = "<group>"; };
+		315307FE0DEB62E6008F5881 /* GrowlPathUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowlPathUtilities.m; path = "From Growl/GrowlPathUtilities.m"; sourceTree = "<group>"; };
+		3161D59C0DEB6AAA00C9D375 /* GrowlDefinesInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowlDefinesInternal.h; path = "From Growl/GrowlDefinesInternal.h"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Growl Version Detective_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Growl Version Detective_Prefix.pch"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Growl Version Detective.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Growl Version Detective.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +57,7 @@
 				315307870DEB3E94008F5881 /* GrowlVersionDetective.m */,
 				315307890DEB3E9F008F5881 /* GVDFoundApp.h */,
 				3153078A0DEB3E9F008F5881 /* GVDFoundApp.m */,
+				315308000DEB62EA008F5881 /* From Growl */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -124,6 +129,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		315308000DEB62EA008F5881 /* From Growl */ = {
+			isa = PBXGroup;
+			children = (
+				3161D59C0DEB6AAA00C9D375 /* GrowlDefinesInternal.h */,
+				315307FD0DEB62E6008F5881 /* GrowlPathUtilities.h */,
+				315307FE0DEB62E6008F5881 /* GrowlPathUtilities.m */,
+			);
+			name = "From Growl";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -183,6 +198,7 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				315307880DEB3E94008F5881 /* GrowlVersionDetective.m in Sources */,
 				3153078B0DEB3E9F008F5881 /* GVDFoundApp.m in Sources */,
+				315307FF0DEB62E6008F5881 /* GrowlPathUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
