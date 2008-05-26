@@ -24,10 +24,13 @@
 #pragma mark NSApplication delegate conformance
 
 - (void) applicationDidFinishLaunching:(NSNotification *)notification {
+	[self willChangeValueForKey:@"query"];
 	query = [[NSMetadataQuery alloc] init];
 	NSLog(@"Setting predicate");
 	[query setPredicate:[NSPredicate predicateWithFormat:@"(kMDItemContentType = 'com.apple.application-bundle')"]];
 	[query setDelegate:self];
+	[self  didChangeValueForKey:@"query"];
+
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(gatheringResults:)
 												 name:NSMetadataQueryGatheringProgressNotification
