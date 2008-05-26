@@ -26,7 +26,6 @@
 - (void) applicationDidFinishLaunching:(NSNotification *)notification {
 	[self willChangeValueForKey:@"query"];
 	query = [[NSMetadataQuery alloc] init];
-	NSLog(@"Setting predicate");
 	[query setPredicate:[NSPredicate predicateWithFormat:@"(kMDItemContentType = 'com.apple.application-bundle')"]];
 	[query setDelegate:self];
 	[self  didChangeValueForKey:@"query"];
@@ -40,7 +39,6 @@
 												 name:NSMetadataQueryDidUpdateNotification
 											   object:query];
 	[query startQuery];
-	NSLog(@"query is gathering: %@", [query isGathering] ? @"YES" : @"NO");
 }
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)app {
 	return YES;
@@ -53,13 +51,6 @@
 
 	[query release];
 	query = nil;
-}
-
-- (void) gatheringResults:(NSNotification *)notification {
-	NSLog(@"query results: %@", [query results]);
-}
-- (void) liveUpdate:(NSNotification *)notification {
-//	NSLog(@"query results: %@", [query results]);
 }
 
 #pragma mark NSMetadataQuery delegate conformance
