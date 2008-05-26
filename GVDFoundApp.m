@@ -34,7 +34,11 @@
 	return [[NSFileManager defaultManager] displayNameAtPath:path];
 }
 - (NSString *) applicationVersion {
-	return [[NSBundle bundleWithPath:path] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+	NSBundle *bundle = [NSBundle bundleWithPath:path];
+	NSString *version = [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+	if (!version)
+		version = [bundle objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
+	return version;
 }
 - (NSString *) growlFrameworkVersion {
 	return [[NSBundle bundleWithPath:[[[NSBundle bundleWithPath:path] privateFrameworksPath] stringByAppendingPathComponent:@"Growl.framework"]] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
