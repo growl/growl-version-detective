@@ -30,14 +30,6 @@
 	[query setDelegate:self];
 	[self  didChangeValueForKey:@"query"];
 
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(gatheringResults:)
-												 name:NSMetadataQueryGatheringProgressNotification
-											   object:query];
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(liveUpdate:)
-												 name:NSMetadataQueryDidUpdateNotification
-											   object:query];
 	[query startQuery];
 }
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)app {
