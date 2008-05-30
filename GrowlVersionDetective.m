@@ -68,6 +68,9 @@
 
 #pragma mark Actions
 
+- (IBAction) revealGrowlPrefPaneInWorkspace:sender {
+	[[NSWorkspace sharedWorkspace] selectFile:[[GrowlPathUtilities growlPrefPaneBundle] bundlePath] inFileViewerRootedAtPath:@""];
+}
 - (IBAction) revealSelectionInWorkspace:sender {
 	[[NSWorkspace sharedWorkspace] selectFile:[arrayController selection] inFileViewerRootedAtPath:@""];
 }
