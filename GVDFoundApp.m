@@ -3,7 +3,7 @@
 //  Growl Version Detective
 //
 //  Created by Peter Hosey on 2008-05-26.
-//  Copyright 2008 Peter Hosey. All rights reserved.
+//  Copyright 2008 the Growl Project. All rights reserved.
 //
 
 #import "GVDFoundApp.h"
