@@ -72,7 +72,7 @@
 	[[NSWorkspace sharedWorkspace] selectFile:[[GrowlPathUtilities growlPrefPaneBundle] bundlePath] inFileViewerRootedAtPath:@""];
 }
 - (IBAction) revealSelectionInWorkspace:sender {
-	[[NSWorkspace sharedWorkspace] selectFile:[arrayController selection] inFileViewerRootedAtPath:@""];
+	[[NSWorkspace sharedWorkspace] selectFile:[[arrayController selection] valueForKey:@"path"] inFileViewerRootedAtPath:@""];
 }
 
 @end
