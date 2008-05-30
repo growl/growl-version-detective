@@ -16,6 +16,7 @@
 - (NSString *) growlVersion;
 - (NSMetadataQuery *) query;
 
+- (IBAction) revealGrowlPrefPaneInWorkspace:sender;
 - (IBAction) revealSelectionInWorkspace:sender;
 
 @end
