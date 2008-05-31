@@ -41,7 +41,20 @@
 	return version;
 }
 - (NSString *) growlFrameworkVersion {
-	return [[NSBundle bundleWithPath:[[[path stringByAppendingPathComponent:@"Contents"] stringByAppendingPathComponent:@"Frameworks"] stringByAppendingPathComponent:@"Growl.framework"]] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+	NSString *frameworksDir = [[path stringByAppendingPathComponent:@"Contents"] stringByAppendingPathComponent:@"Frameworks"];
+
+	BOOL isWithInstallerFramework = NO;
+	NSBundle *frameworkBundle = [NSBundle bundleWithPath:[frameworksDir stringByAppendingPathComponent:@"Growl.framework"]];
+	if (!frameworkBundle) {
+		frameworkBundle = [NSBundle bundleWithPath:[frameworksDir stringByAppendingPathComponent:@"Growl-WithInstaller.framework"]];
+		isWithInstallerFramework = YES;
+	}
+
+	NSString *version = [frameworkBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+	if (version && isWithInstallerFramework)
+		version = [NSString stringWithFormat:NSLocalizedString(@"%@ (WithInstaller)", /*comment*/ nil), version];
+
+	return version;
 }
 - (NSString *) path {
 	return path;
