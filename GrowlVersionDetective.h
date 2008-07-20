@@ -6,17 +6,15 @@
 //  Copyright 2008 the Growl Project. All rights reserved.
 //
 
+@class GVDFileFinder;
+
 @interface GrowlVersionDetective : NSObject {
 	IBOutlet NSWindow *mainWindow;
-	IBOutlet NSArrayController *arrayController;
-
-	NSMetadataQuery *query;
+	IBOutlet NSTabView *tabView;
+	NSMutableArray *fileFinders;
 }
 
-- (NSString *) growlVersion;
-- (NSMetadataQuery *) query;
-
-- (IBAction) revealGrowlPrefPaneInWorkspace:sender;
-- (IBAction) revealSelectionInWorkspace:sender;
+- (void) addFileFinder:(GVDFileFinder *)finder;
+- (void) removeFileFinder:(GVDFileFinder *)finder;
 
 @end
