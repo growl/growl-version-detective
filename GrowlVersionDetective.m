@@ -12,6 +12,7 @@
 #import "GVDFileFinder.h"
 
 #import "GrowlFrameworkFinder.h"
+#import "GrowlPrefPaneFinder.h"
 
 #import "GrowlPathUtilities.h"
 
@@ -34,6 +35,7 @@
 		nibIsLoaded = YES;
 		[NSBundle loadNibNamed:@"GrowlVersionDetective" owner:self];
 	} else {
+		[self addFileFinder:[[[GrowlPrefPaneFinder alloc] init] autorelease]];
 		[self addFileFinder:[[[GrowlFrameworkFinder alloc] init] autorelease]];
 
 		//Force-load the first view.
@@ -73,7 +75,7 @@
 	NSEnumerator *fileFindersEnum = [fileFinders reverseObjectEnumerator];
 	GVDFileFinder *finder;
 	while ((finder = [fileFindersEnum nextObject])) {
-		NSTabViewItem *item = [tabView tabViewItemAtIndex:i];
+		NSTabViewItem *item = [tabView tabViewItemAtIndex:i--];
 		[finder viewWillUnload];
 		[tabView removeTabViewItem:item];
 		[finder viewDidUnload];
@@ -89,8 +91,9 @@
 - (void)tabView:(NSTabView *)thisTabView willSelectTabViewItem:(NSTabViewItem *)tabViewItem {
 	GVDFileFinder *finder = [fileFinders objectAtIndex:[tabView indexOfTabViewItem:tabViewItem]];
 
-	if (![tabViewItem view])
-		[tabViewItem setView:[finder view]];
+	//NSTabViewItem will make up an NSView for us, so we can't test whether the tab view item's view is nil.
+	//Therefore, we just blindly set the view every time. Since GVDFileFinder keeps the view in an ivar, this should not be noticeably inefficient.
+	[tabViewItem setView:[finder view]];
 }
 
 @end
