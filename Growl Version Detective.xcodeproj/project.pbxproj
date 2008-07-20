@@ -152,10 +152,10 @@
 		31876B350E3242F400B83928 /* File-finder classes */ = {
 			isa = PBXGroup;
 			children = (
-				312C50670E3242B400CA26AC /* GrowlFrameworkFinder.h */,
-				312C50680E3242B400CA26AC /* GrowlFrameworkFinder.m */,
 				31876B370E32447200B83928 /* GVDFileFinder.h */,
 				31876B380E32447200B83928 /* GVDFileFinder.m */,
+				312C50670E3242B400CA26AC /* GrowlFrameworkFinder.h */,
+				312C50680E3242B400CA26AC /* GrowlFrameworkFinder.m */,
 			);
 			name = "File-finder classes";
 			sourceTree = "<group>";
