@@ -14,6 +14,10 @@
 		315307FF0DEB62E6008F5881 /* GrowlPathUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 315307FE0DEB62E6008F5881 /* GrowlPathUtilities.m */; };
 		31876B390E32447200B83928 /* GVDFileFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31876B380E32447200B83928 /* GVDFileFinder.m */; };
 		31876B410E32501C00B83928 /* GrowlFrameworkFinder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31876B3F0E32501C00B83928 /* GrowlFrameworkFinder.xib */; };
+		31876BF00E32FC2F00B83928 /* GrowlPrefPaneFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31876BEF0E32FC2F00B83928 /* GrowlPrefPaneFinder.m */; };
+		31876C1C0E32FE0200B83928 /* OSAKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31876C1B0E32FE0200B83928 /* OSAKit.framework */; };
+		31876C4A0E32FE7D00B83928 /* GrowlPrefPaneFinder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31876C480E32FE7D00B83928 /* GrowlPrefPaneFinder.xib */; };
+		31876C770E3300EA00B83928 /* TrashLocalGrowlPrefPane.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 31876C4B0E32FE9D00B83928 /* TrashLocalGrowlPrefPane.applescript */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -41,6 +45,11 @@
 		31876B370E32447200B83928 /* GVDFileFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVDFileFinder.h; sourceTree = "<group>"; };
 		31876B380E32447200B83928 /* GVDFileFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVDFileFinder.m; sourceTree = "<group>"; };
 		31876B400E32501C00B83928 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GrowlFrameworkFinder.xib; sourceTree = "<group>"; };
+		31876BEE0E32FC2F00B83928 /* GrowlPrefPaneFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlPrefPaneFinder.h; sourceTree = "<group>"; };
+		31876BEF0E32FC2F00B83928 /* GrowlPrefPaneFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlPrefPaneFinder.m; sourceTree = "<group>"; };
+		31876C1B0E32FE0200B83928 /* OSAKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSAKit.framework; path = System/Library/Frameworks/OSAKit.framework; sourceTree = SDKROOT; };
+		31876C490E32FE7D00B83928 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GrowlPrefPaneFinder.xib; sourceTree = "<group>"; };
+		31876C4B0E32FE9D00B83928 /* TrashLocalGrowlPrefPane.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = TrashLocalGrowlPrefPane.applescript; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Growl Version Detective_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Growl Version Detective_Prefix.pch"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Growl Version Detective.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Growl Version Detective.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				31876C1C0E32FE0200B83928 /* OSAKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				31876C1B0E32FE0200B83928 /* OSAKit.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -126,6 +137,8 @@
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 				3153077C0DEB3ABA008F5881 /* GrowlVersionDetective.xib */,
 				31876B3F0E32501C00B83928 /* GrowlFrameworkFinder.xib */,
+				31876C480E32FE7D00B83928 /* GrowlPrefPaneFinder.xib */,
+				31876C4B0E32FE9D00B83928 /* TrashLocalGrowlPrefPane.applescript */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -156,6 +169,8 @@
 				31876B380E32447200B83928 /* GVDFileFinder.m */,
 				312C50670E3242B400CA26AC /* GrowlFrameworkFinder.h */,
 				312C50680E3242B400CA26AC /* GrowlFrameworkFinder.m */,
+				31876BEE0E32FC2F00B83928 /* GrowlPrefPaneFinder.h */,
+				31876BEF0E32FC2F00B83928 /* GrowlPrefPaneFinder.m */,
 			);
 			name = "File-finder classes";
 			sourceTree = "<group>";
@@ -207,6 +222,8 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				3153077E0DEB3ABA008F5881 /* GrowlVersionDetective.xib in Resources */,
 				31876B410E32501C00B83928 /* GrowlFrameworkFinder.xib in Resources */,
+				31876C4A0E32FE7D00B83928 /* GrowlPrefPaneFinder.xib in Resources */,
+				31876C770E3300EA00B83928 /* TrashLocalGrowlPrefPane.applescript in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +240,7 @@
 				315307FF0DEB62E6008F5881 /* GrowlPathUtilities.m in Sources */,
 				312C50690E3242B400CA26AC /* GrowlFrameworkFinder.m in Sources */,
 				31876B390E32447200B83928 /* GVDFileFinder.m in Sources */,
+				31876BF00E32FC2F00B83928 /* GrowlPrefPaneFinder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +277,14 @@
 				31876B400E32501C00B83928 /* English */,
 			);
 			name = GrowlFrameworkFinder.xib;
+			sourceTree = "<group>";
+		};
+		31876C480E32FE7D00B83928 /* GrowlPrefPaneFinder.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31876C490E32FE7D00B83928 /* English */,
+			);
+			name = GrowlPrefPaneFinder.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
