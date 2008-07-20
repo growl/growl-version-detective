@@ -34,11 +34,7 @@
 		nibIsLoaded = YES;
 		[NSBundle loadNibNamed:@"GrowlVersionDetective" owner:self];
 	} else {
-		id foo = [[[GrowlFrameworkFinder alloc] init] autorelease];
-		NSLog(@"Adding file-finder: %@", foo);
-		[self addFileFinder:foo];
-
-//		[self addFileFinder:[[[GrowlFrameworkFinder alloc] init] autorelease]];
+		[self addFileFinder:[[[GrowlFrameworkFinder alloc] init] autorelease]];
 
 		//Force-load the first view.
 		[[tabView tabViewItemAtIndex:0U] setView:[[fileFinders objectAtIndex:0U] view]];
@@ -46,16 +42,13 @@
 }
 
 - (void) addFileFinder:(GVDFileFinder *)finder {
-	NSLog(@"Tab title: %@", [finder localizedTabTitle]);
 	if ([finder localizedTabTitle]) {
 		unsigned idx = [fileFinders indexOfObjectIdenticalTo:finder];
-		NSLog(@"Index of file-finder in array %p of them: %u (NSNotFound = %u)", fileFinders, idx, NSNotFound);
 		if (idx == NSNotFound) {
 			[fileFinders addObject:finder];
 
 			NSTabViewItem *item = [[[NSTabViewItem alloc] initWithIdentifier:[finder description]] autorelease];
 			[item setLabel:[finder localizedTabTitle]];
-			NSLog(@"Adding tab view item: %@ to tab view: %@", item, tabView);
 			[tabView addTabViewItem:item];
 		}
 	}
