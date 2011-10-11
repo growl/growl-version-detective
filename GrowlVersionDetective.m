@@ -45,7 +45,7 @@
 
 - (void) addFileFinder:(GVDFileFinder *)finder {
 	if ([finder localizedTabTitle]) {
-		unsigned idx = [fileFinders indexOfObjectIdenticalTo:finder];
+		NSUInteger idx = [fileFinders indexOfObjectIdenticalTo:finder];
 		if (idx == NSNotFound) {
 			[fileFinders addObject:finder];
 
