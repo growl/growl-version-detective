@@ -37,6 +37,8 @@
 @property (nonatomic) BOOL withInstaller;
 @property (nonatomic) BOOL relaunchAfterUpgrade;
 
++ (NSString*)defaultFrameworkPath;
+
 - initWithPath:(NSString *)path;
 - initWithItem:(NSMetadataItem*)item;
 
