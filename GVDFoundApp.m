@@ -7,6 +7,7 @@
 //
 
 #import "GVDFoundApp.h"
+#import "GrowlVersionUtilities.h"
 
 @implementation GVDFoundApp
 
@@ -24,6 +25,15 @@
 
 @synthesize withInstaller;
 @synthesize relaunchAfterUpgrade;
+
++ (NSString*) defaultFrameworkPath{
+   static NSString *defaultPath = nil;
+   if(!defaultPath){
+      defaultPath = [[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Contents"] stringByAppendingPathComponent:@"Frameworks"];
+      defaultPath = [[defaultPath stringByAppendingPathComponent:@"Growl.framework"] retain];
+   }
+   return defaultPath;
+}
 
 - (id) initWithItem:(NSMetadataItem*)item {
    if((self = [super init])) {
@@ -70,13 +80,6 @@
    return self;
 }
 
-- initWithPath:(NSString *)newPath {
-	if ((self = [super init])) {
-		path = [newPath copy];
-      withInstaller = NO;
-	}
-	return self;
-}
 - (void) dealloc {
 	[path release];
 	[super dealloc];
@@ -92,9 +95,12 @@
 }
 
 - (BOOL) isFrameworkPathUpgrade:(NSString*)newPath {
+   if(!newPath)
+      newPath = [GVDFoundApp defaultFrameworkPath];
+   
    NSBundle *newFramework = [NSBundle bundleWithPath:newPath];
    NSString *newVersion = [newFramework objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-   if ([activeFrameworkVersion caseInsensitiveCompare:newVersion] != NSOrderedAscending) {
+   if (compareVersionStrings(activeFrameworkVersion, newVersion) != NSOrderedAscending) {
       return NO;
    }
    return YES;
@@ -133,11 +139,8 @@
 
 - (void) upgradeAppWithFramework:(NSString *)newFWPath
 {
-   
-   if(!newFWPath){
-      newFWPath = [[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Contents"] stringByAppendingPathComponent:@"Frameworks"];
-      newFWPath = [newFWPath stringByAppendingPathComponent:@"Growl.framework"];
-   }
+   if(!newFWPath)
+      newFWPath = [GVDFoundApp defaultFrameworkPath];
    
    if(![self isFrameworkPathUpgrade:newFWPath]){
       NSLog(@"Not replacing FW because it is not newer than");
