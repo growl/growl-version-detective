@@ -24,6 +24,7 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		BCFEEC6A1447261C00B563E9 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFEEC691447261C00B563E9 /* Growl.framework */; };
 		BCFEEC6D1447272900B563E9 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BCFEEC691447261C00B563E9 /* Growl.framework */; };
+		BCFEEC741447283900B563E9 /* GrowlVersionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFEEC731447283900B563E9 /* GrowlVersionUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +70,8 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Growl Version Detective.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Growl Version Detective.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFEEC691447261C00B563E9 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "From Growl/Growl.framework"; sourceTree = "<group>"; };
+		BCFEEC721447283900B563E9 /* GrowlVersionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowlVersionUtilities.h; path = "From Growl/GrowlVersionUtilities.h"; sourceTree = "<group>"; };
+		BCFEEC731447283900B563E9 /* GrowlVersionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowlVersionUtilities.m; path = "From Growl/GrowlVersionUtilities.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 				3161D59C0DEB6AAA00C9D375 /* GrowlDefinesInternal.h */,
 				315307FD0DEB62E6008F5881 /* GrowlPathUtilities.h */,
 				315307FE0DEB62E6008F5881 /* GrowlPathUtilities.m */,
+				BCFEEC721447283900B563E9 /* GrowlVersionUtilities.h */,
+				BCFEEC731447283900B563E9 /* GrowlVersionUtilities.m */,
 			);
 			name = "From Growl";
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 				312C50690E3242B400CA26AC /* GrowlFrameworkFinder.m in Sources */,
 				31876B390E32447200B83928 /* GVDFileFinder.m in Sources */,
 				31876BF00E32FC2F00B83928 /* GrowlPrefPaneFinder.m in Sources */,
+				BCFEEC741447283900B563E9 /* GrowlVersionUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
