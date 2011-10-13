@@ -21,7 +21,7 @@
 }
 
 - (void) viewDidLoad {
-	[arrayController setFilterPredicate:[NSPredicate predicateWithFormat:@"growlFrameworkVersion != nil"]];
+	[arrayController setFilterPredicate:[NSPredicate predicateWithFormat:@"activeFrameworkVersion != nil"]];
 
 	[self willChangeValueForKey:@"query"];
 	query = [[NSMetadataQuery alloc] init];
@@ -43,8 +43,8 @@
 
 #pragma mark NSMetadataQuery delegate conformance
 
-- metadataQuery:(NSMetadataQuery *)query replacementObjectForResultObject:(NSMetadataItem *)result {
-	return [[[GVDFoundApp alloc] initWithPath:[result valueForAttribute:(NSString *)kMDItemPath]] autorelease];
+-(id) metadataQuery:(NSMetadataQuery *)aQueary replacementObjectForResultObject:(NSMetadataItem *)result {
+   return [[[GVDFoundApp alloc] initWithItem:result] autorelease];
 }
 
 #pragma mark Accessors
@@ -64,6 +64,20 @@
 }
 - (IBAction) revealSelectionInWorkspace:sender {
 	[[NSWorkspace sharedWorkspace] selectFile:[[arrayController selection] valueForKey:@"path"] inFileViewerRootedAtPath:@""];
+}
+
+- (IBAction)upgradeApps:(id)sender{
+   NSArray *arrayToUpgrade = nil;
+   if([[arrayController selectedObjects] count] > 0)
+      arrayToUpgrade = [arrayController selectedObjects];
+   else
+      arrayToUpgrade = [arrayController arrangedObjects];
+   
+   [arrayToUpgrade enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+      if([obj isKindOfClass:[GVDFoundApp class]]){
+         [obj upgradeAppWithFramework:nil];
+      }
+   }];
 }
 
 @end

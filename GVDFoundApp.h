@@ -7,17 +7,43 @@
 //
 
 @interface GVDFoundApp : NSObject {
-	NSString *path;
+   NSString *appBundleID;
+   NSString *appVersion;
+   NSString *appName;
+   NSImage  *appIcon;
+   NSString *path;
+   
+   NSBundle *activeFramework;
+   NSString *activeFrameworkVersion;
+   NSBundle *backupFramework;
+   NSString *backupFrameworkVersion;
+	NSString *frameworksDir;
+   
+   BOOL withInstaller;
+   BOOL relaunchAfterUpgrade;
 }
+@property (nonatomic, retain) NSString *appBundleID;
+@property (nonatomic, retain) NSString *appVersion;
+@property (nonatomic, retain) NSString *appName;
+@property (nonatomic, retain) NSImage  *appIcon;
+@property (nonatomic, retain) NSString *path;
+
+@property (nonatomic, retain) NSBundle *activeFramework;
+@property (nonatomic, retain) NSString *activeFrameworkVersion;
+@property (nonatomic, retain) NSBundle *backupFramework;
+@property (nonatomic, retain) NSString *backupFrameworkVersion;
+@property (nonatomic, retain) NSString *frameworksDir;
+
+@property (nonatomic) BOOL withInstaller;
+@property (nonatomic) BOOL relaunchAfterUpgrade;
 
 - initWithPath:(NSString *)path;
+- initWithItem:(NSMetadataItem*)item;
 
-#pragma mark Accessors
+- (BOOL) isAppRunning;
+- (BOOL) preReplacement;
+- (void) postReplacement;
 
-- (NSImage  *) applicationIcon;
-- (NSString *) localizedApplicationName;
-- (NSString *) applicationVersion;
-- (NSString *) growlFrameworkVersion;
-- (NSString *) path;
+- (void) upgradeAppWithFramework:(NSString*)path;
 
 @end
