@@ -297,7 +297,7 @@
 						<string key="NSFrame">{{78, 65}, {382, 112}}</string>
 						<reference key="NSSuperview" ref="463926783"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="302582364"/>
+						<reference key="NSNextKeyView" ref="963372921"/>
 						<bool key="NSEnabled">YES</bool>
 						<int key="NSNumRows">4</int>
 						<int key="NSNumCols">1</int>
@@ -530,6 +530,58 @@
 						<reference key="NSNextKeyView" ref="743379929"/>
 						<string key="NSClassName">NSView</string>
 					</object>
+					<object class="NSButton" id="963372921">
+						<reference key="NSNextResponder" ref="463926783"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{14, 17}, {116, 32}}</string>
+						<reference key="NSSuperview" ref="463926783"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="55239087"/>
+						<string key="NSReuseIdentifierKey">_NS:161</string>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSButtonCell" key="NSCell" id="583543136">
+							<int key="NSCellFlags">67239424</int>
+							<int key="NSCellFlags2">134217728</int>
+							<string key="NSContents">Upgrade FW</string>
+							<object class="NSFont" key="NSSupport" id="531111694">
+								<string key="NSName">LucidaGrande</string>
+								<double key="NSSize">13</double>
+								<int key="NSfFlags">1044</int>
+							</object>
+							<string key="NSCellIdentifier">_NS:161</string>
+							<reference key="NSControlView" ref="963372921"/>
+							<int key="NSButtonFlags">-2038284033</int>
+							<int key="NSButtonFlags2">129</int>
+							<string key="NSAlternateContents"/>
+							<string key="NSKeyEquivalent"/>
+							<int key="NSPeriodicDelay">200</int>
+							<int key="NSPeriodicInterval">25</int>
+						</object>
+					</object>
+					<object class="NSButton" id="55239087">
+						<reference key="NSNextResponder" ref="463926783"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{130, 17}, {102, 32}}</string>
+						<reference key="NSSuperview" ref="463926783"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="302582364"/>
+						<string key="NSReuseIdentifierKey">_NS:161</string>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSButtonCell" key="NSCell" id="411458767">
+							<int key="NSCellFlags">67239424</int>
+							<int key="NSCellFlags2">134217728</int>
+							<string key="NSContents">Revert FW</string>
+							<reference key="NSSupport" ref="531111694"/>
+							<string key="NSCellIdentifier">_NS:161</string>
+							<reference key="NSControlView" ref="55239087"/>
+							<int key="NSButtonFlags">-2038284033</int>
+							<int key="NSButtonFlags2">129</int>
+							<string key="NSAlternateContents"/>
+							<string key="NSKeyEquivalent"/>
+							<int key="NSPeriodicDelay">200</int>
+							<int key="NSPeriodicInterval">25</int>
+						</object>
+					</object>
 				</object>
 				<string key="NSFrameSize">{480, 421}</string>
 				<reference key="NSSuperview"/>
@@ -761,6 +813,47 @@
 					</object>
 					<int key="connectionID">67</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selection.backupFramework</string>
+						<reference key="source" ref="55239087"/>
+						<reference key="destination" ref="269654255"/>
+						<object class="NSNibBindingConnector" key="connector" id="73752984">
+							<reference key="NSSource" ref="55239087"/>
+							<reference key="NSDestination" ref="269654255"/>
+							<string key="NSLabel">enabled: selection.backupFramework</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selection.backupFramework</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">74</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: selection.backupFramework</string>
+						<reference key="source" ref="55239087"/>
+						<reference key="destination" ref="269654255"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="55239087"/>
+							<reference key="NSDestination" ref="269654255"/>
+							<string key="NSLabel">hidden: selection.backupFramework</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">selection.backupFramework</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<reference key="NSPreviousConnector" ref="73752984"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">77</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -799,6 +892,8 @@
 							<reference ref="878796538"/>
 							<reference ref="902437174"/>
 							<reference ref="472321116"/>
+							<reference ref="963372921"/>
+							<reference ref="55239087"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -998,6 +1093,34 @@
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Results Controller</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">68</int>
+						<reference key="object" ref="963372921"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="583543136"/>
+						</object>
+						<reference key="parent" ref="463926783"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">69</int>
+						<reference key="object" ref="583543136"/>
+						<reference key="parent" ref="963372921"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">70</int>
+						<reference key="object" ref="55239087"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="411458767"/>
+						</object>
+						<reference key="parent" ref="463926783"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">71</int>
+						<reference key="object" ref="411458767"/>
+						<reference key="parent" ref="55239087"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1034,7 +1157,11 @@
 					<string>44.showNotes</string>
 					<string>5.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
+					<string>68.IBPluginDependency</string>
+					<string>69.IBPluginDependency</string>
 					<string>7.IBPluginDependency</string>
+					<string>70.IBPluginDependency</string>
+					<string>71.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
 				</object>
@@ -1073,6 +1200,10 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -1087,7 +1218,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">67</int>
+			<int key="maxID">79</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
