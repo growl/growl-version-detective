@@ -140,7 +140,7 @@
 {
    if(relaunchAfterUpgrade){
       NSError *launchError = nil;
-      [[NSWorkspace sharedWorkspace] launchApplicationAtURL:[NSURL URLWithString:path]
+      [[NSWorkspace sharedWorkspace] launchApplicationAtURL:[NSURL fileURLWithPath:path]
                                                     options:NSWorkspaceLaunchDefault
                                               configuration:nil
                                                       error:&launchError];
@@ -195,7 +195,7 @@
 
    //Move the new framework into place
    NSError *error = nil;
-   [[NSFileManager defaultManager] moveItemAtPath:newFWPath
+   [[NSFileManager defaultManager] copyItemAtPath:newFWPath
                                            toPath:[frameworksDir stringByAppendingPathComponent:@"Growl.framework"] 
                                             error:&error];
    if(error){
@@ -230,9 +230,7 @@
       }
       self.activeFramework = [NSBundle bundleWithPath:newPath];
       self.activeFrameworkVersion = backupFrameworkVersion;
-      [backupFramework release];
       self.backupFramework = nil;
-      [backupFrameworkVersion release];
       self.backupFrameworkVersion = nil;
 
       [self postReplacement];
