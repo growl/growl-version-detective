@@ -39,8 +39,10 @@
 
 + (NSString*)defaultFrameworkPath;
 
-- initWithPath:(NSString *)path;
-- initWithItem:(NSMetadataItem*)item;
+- (id) initWithPath:(NSString*)newPath
+           bundleID:(NSString*)bundleID
+            appName:(NSString*)name;
+- (id) initWithItem:(NSMetadataItem*)item;
 
 - (BOOL) isAppRunning;
 - (BOOL) isFrameworkPathUpgrade:(NSString*)newPath;
