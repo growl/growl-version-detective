@@ -43,9 +43,11 @@
 - initWithItem:(NSMetadataItem*)item;
 
 - (BOOL) isAppRunning;
+- (BOOL) isFrameworkPathUpgrade:(NSString*)newPath;
 - (BOOL) preReplacement;
 - (void) postReplacement;
 
 - (void) upgradeAppWithFramework:(NSString*)path;
+- (void) downgradeApp;
 
 @end

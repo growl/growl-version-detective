@@ -157,7 +157,7 @@
    //Should we move the existing aside?
    //If a backup already exists, thats the original framework, we dont want to replace it
    NSString *backupPath = [backupFramework bundlePath];
-   if(backupPath != nil){
+   if(backupPath == nil){
       NSError *error = nil;
       [[NSFileManager defaultManager] moveItemAtPath:frameworkPath
                                               toPath:[frameworkPath stringByAppendingString:@".bak"]
@@ -166,6 +166,10 @@
          NSLog(@"Error backing up framework! %@", error);
          return;
       }
+      self.backupFramework = activeFramework;
+      self.backupFrameworkVersion = activeFrameworkVersion;
+      self.activeFramework = [NSBundle bundleWithPath:newFWPath];
+      self.activeFrameworkVersion = [activeFramework objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
    }else{
       NSLog(@"Backup of original already found, upgrading current active framework in place");
       NSError *removeError = nil;
@@ -212,7 +216,11 @@
       if(moveError){
          NSLog(@"Error moving old framework back into place %@", moveError);
       }
-      
+      self.activeFramework = backupFramework;
+      self.activeFrameworkVersion = backupFrameworkVersion;
+      self.backupFramework = nil;
+      self.backupFrameworkVersion = nil;
+
       [self postReplacement];
    }else{
       NSLog(@"No backup framework found");

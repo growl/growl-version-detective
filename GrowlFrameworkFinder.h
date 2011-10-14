@@ -10,6 +10,7 @@
 
 @interface GrowlFrameworkFinder : GVDFileFinder {
 	IBOutlet NSArrayController *arrayController;
+   IBOutlet NSButton *upgradeButton;
 
 	NSMetadataQuery *query;
 }
