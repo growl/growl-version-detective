@@ -34,12 +34,24 @@
    }
    return defaultPath;
 }
-
 - (id) initWithItem:(NSMetadataItem*)item {
+   if((self = [self initWithPath:[item valueForAttribute:(NSString*)kMDItemPath]
+                        bundleID:[item valueForAttribute:(NSString*)kMDItemCFBundleIdentifier]
+                         appName:[item valueForAttribute:(NSString *)kMDItemDisplayName]]))
+   {
+      
+   }
+   return self;
+}
+
+- (id) initWithPath:(NSString*)newPath
+           bundleID:(NSString*)bundleID
+            appName:(NSString*)name
+{
    if((self = [super init])) {
-      self.path = [item valueForAttribute:(NSString*)kMDItemPath];
-      self.appBundleID = [item valueForAttribute:(NSString*)kMDItemCFBundleIdentifier];
-      self.appName = [item valueForAttribute:(NSString *)kMDItemDisplayName];
+      self.path = newPath;
+      self.appBundleID = bundleID;
+      self.appName = name;
       self.appIcon = [[NSWorkspace sharedWorkspace] iconForFile:path];
 
       NSBundle *bundle = [NSBundle bundleWithPath:path];
@@ -166,7 +178,7 @@
          NSLog(@"Error backing up framework! %@", error);
          return;
       }
-      self.backupFramework = activeFramework;
+      self.backupFramework = [NSBundle bundleWithPath:[frameworkPath stringByAppendingString:@".bak"]];
       self.backupFrameworkVersion = activeFrameworkVersion;
       self.activeFramework = [NSBundle bundleWithPath:newFWPath];
       self.activeFrameworkVersion = [activeFramework objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
@@ -208,7 +220,7 @@
          return;
       }
       
-      NSString *newPath = [backupPath stringByDeletingPathExtension];
+      NSString *newPath = [backupPath substringToIndex:[backupPath length] - [@".bak" length]];
       NSError *moveError = nil;
       [[NSFileManager defaultManager] moveItemAtPath:backupPath
                                               toPath:newPath
@@ -216,9 +228,11 @@
       if(moveError){
          NSLog(@"Error moving old framework back into place %@", moveError);
       }
-      self.activeFramework = backupFramework;
+      self.activeFramework = [NSBundle bundleWithPath:newPath];
       self.activeFrameworkVersion = backupFrameworkVersion;
+      [backupFramework release];
       self.backupFramework = nil;
+      [backupFrameworkVersion release];
       self.backupFrameworkVersion = nil;
 
       [self postReplacement];

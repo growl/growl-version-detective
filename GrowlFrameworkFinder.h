@@ -11,9 +11,13 @@
 @interface GrowlFrameworkFinder : GVDFileFinder {
 	IBOutlet NSArrayController *arrayController;
    IBOutlet NSButton *upgradeButton;
+   
+   NSMutableArray *results;
 
 	NSMetadataQuery *query;
 }
+
+@property (nonatomic, retain) NSMutableArray *results;
 
 - (NSString *) growlVersion;
 - (NSMetadataQuery *) query;

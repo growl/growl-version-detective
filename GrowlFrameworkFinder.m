@@ -13,6 +13,8 @@
 
 @implementation GrowlFrameworkFinder
 
+@synthesize results;
+
 - (NSString *) localizedTabTitle {
 	return NSLocalizedString(@"Framework", /*comment*/ @"Tab title");
 }
@@ -21,14 +23,16 @@
 }
 
 - (void) viewDidLoad {
-	[arrayController setFilterPredicate:[NSPredicate predicateWithFormat:@"activeFrameworkVersion != nil"]];
+	//[arrayController setFilterPredicate:[NSPredicate predicateWithFormat:@"activeFrameworkVersion != nil"]];
 
 	[self willChangeValueForKey:@"query"];
 	query = [[NSMetadataQuery alloc] init];
 	[query setPredicate:[NSPredicate predicateWithFormat:@"(kMDItemContentType = 'com.apple.application-bundle')"]];
-	[query setSortDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:(NSString *)kMDItemDisplayName ascending:YES selector:@selector(localizedCompare:)] autorelease]]];
+	[arrayController setSortDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"appName" ascending:YES selector:@selector(localizedCompare:)] autorelease]]];
 	[query setDelegate:self];
 	[self  didChangeValueForKey:@"query"];
+   
+   results = [[NSMutableArray alloc] init];
 
 	[query startQuery];
 }
@@ -39,6 +43,9 @@
 
 	[query release];
 	query = nil;
+   
+   [results release];
+   results = nil;
 }
 
 #pragma mark NSTableView delegate methods
@@ -57,7 +64,16 @@
 #pragma mark NSMetadataQuery delegate conformance
 
 -(id) metadataQuery:(NSMetadataQuery *)aQueary replacementObjectForResultObject:(NSMetadataItem *)result {
-   return [[[GVDFoundApp alloc] initWithItem:result] autorelease];
+   dispatch_async(dispatch_get_main_queue(), ^(void) {
+      GVDFoundApp *app = [[GVDFoundApp alloc] initWithItem:result];
+      if([app activeFramework] != nil){
+         [self willChangeValueForKey:@"results"];
+         [results addObject:app];
+         [self didChangeValueForKey:@"results"];
+      }
+      [app release];
+   });
+   return nil;
 }
 
 #pragma mark Accessors
