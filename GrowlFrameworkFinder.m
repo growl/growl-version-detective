@@ -86,16 +86,8 @@
 	return query;
 }
 
-#pragma mark Actions
-
-- (IBAction) revealGrowlPrefPaneInWorkspace:sender {
-	[[NSWorkspace sharedWorkspace] selectFile:[[GrowlPathUtilities growlPrefPaneBundle] bundlePath] inFileViewerRootedAtPath:@""];
-}
-- (IBAction) revealSelectionInWorkspace:sender {
-	[[NSWorkspace sharedWorkspace] selectFile:[[arrayController selection] valueForKey:@"path"] inFileViewerRootedAtPath:@""];
-}
-
-- (IBAction)upgradeApps:(id)sender{
+- (void) upgradeSelected
+{
    NSArray *arrayToUpgrade = nil;
    if([[arrayController selectedObjects] count] > 0)
       arrayToUpgrade = [arrayController selectedObjects];
@@ -107,6 +99,34 @@
          [obj upgradeAppWithFramework:nil];
       }
    }];
+}
+
+#pragma mark Actions
+
+- (IBAction) revealGrowlPrefPaneInWorkspace:sender {
+	[[NSWorkspace sharedWorkspace] selectFile:[[GrowlPathUtilities growlPrefPaneBundle] bundlePath] inFileViewerRootedAtPath:@""];
+}
+- (IBAction) revealSelectionInWorkspace:sender {
+	[[NSWorkspace sharedWorkspace] selectFile:[[arrayController selection] valueForKey:@"path"] inFileViewerRootedAtPath:@""];
+}
+
+- (IBAction)upgradeApps:(id)sender {
+   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+   if(![defaults valueForKey:@"UpgradeWarningDisable"] || ![defaults boolForKey:@"UpgradeWarningDisable"]){
+      NSAlert *alert = [NSAlert alertWithMessageText:@"Warning!" 
+                                       defaultButton:@"Ok" 
+                                     alternateButton:@"Cancel" 
+                                         otherButton:nil 
+                           informativeTextWithFormat:@"Upgrading the framework in an application might make it so that the app can talk more reliably with more modern versions of Growl\nHowever, it might also cause instability in that application.  If you need to revert, the original framework is kept alongside the old one, and we offer a revert function"];
+      [alert setShowsSuppressionButton:YES];
+      int result = [alert runModal];
+      if(result != NSAlertDefaultReturn)
+         return;
+      
+      if([[alert suppressionButton] state] == NSOnState)
+         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"UpgradeWarningDisable"];
+   }
+   [self upgradeSelected];
 }
 
 - (IBAction)downgradeApp:(id)sender {
