@@ -41,6 +41,19 @@
 	query = nil;
 }
 
+#pragma mark NSTableView delegate methods
+
+-(void) tableViewSelectionDidChange:(NSNotification *)notification {
+   if([[arrayController selectedObjects] count] > 0){
+      if([[[arrayController selectedObjects] objectAtIndex:0] isFrameworkPathUpgrade:nil])
+         [upgradeButton setEnabled:YES];
+      else
+         [upgradeButton setEnabled:NO];
+   }else{
+      [upgradeButton setEnabled:YES];
+   }
+}
+
 #pragma mark NSMetadataQuery delegate conformance
 
 -(id) metadataQuery:(NSMetadataQuery *)aQueary replacementObjectForResultObject:(NSMetadataItem *)result {
@@ -78,6 +91,11 @@
          [obj upgradeAppWithFramework:nil];
       }
    }];
+}
+
+- (IBAction)downgradeApp:(id)sender {
+   if([[arrayController selectedObjects] count] > 0 && [[[arrayController selectedObjects] objectAtIndex:0] backupFramework] != nil)
+      [[[arrayController selectedObjects] objectAtIndex:0] downgradeApp];
 }
 
 @end
