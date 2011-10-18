@@ -22,7 +22,6 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		BCFEEC6A1447261C00B563E9 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFEEC691447261C00B563E9 /* Growl.framework */; };
 		BCFEEC6D1447272900B563E9 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BCFEEC691447261C00B563E9 /* Growl.framework */; };
 		BCFEEC741447283900B563E9 /* GrowlVersionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFEEC731447283900B563E9 /* GrowlVersionUtilities.m */; };
 /* End PBXBuildFile section */
@@ -81,7 +80,6 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				31876C1C0E32FE0200B83928 /* OSAKit.framework in Frameworks */,
-				BCFEEC6A1447261C00B563E9 /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

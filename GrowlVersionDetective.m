@@ -39,7 +39,8 @@
 		[self addFileFinder:[[[GrowlFrameworkFinder alloc] init] autorelease]];
 
 		//Force-load the first view.
-		[[tabView tabViewItemAtIndex:0U] setView:[[fileFinders objectAtIndex:0U] view]];
+		//[[tabView tabViewItemAtIndex:0U] setView:[[fileFinders objectAtIndex:0U] view]];
+      [tabView selectTabViewItemAtIndex:0];
 	}
 }
 

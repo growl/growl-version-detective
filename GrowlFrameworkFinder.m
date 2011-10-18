@@ -79,8 +79,11 @@
 #pragma mark Accessors
 
 - (NSString *) growlVersion {
-	NSBundle *bundle = [GrowlPathUtilities growlPrefPaneBundle];
-	return [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+	NSBundle *bundle = [GrowlPathUtilities runningHelperAppBundle];
+   if(bundle)
+      return [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+   else
+      return @"not running";
 }
 - (NSMetadataQuery *) query {
 	return query;
@@ -104,7 +107,7 @@
 #pragma mark Actions
 
 - (IBAction) revealGrowlPrefPaneInWorkspace:sender {
-	[[NSWorkspace sharedWorkspace] selectFile:[[GrowlPathUtilities growlPrefPaneBundle] bundlePath] inFileViewerRootedAtPath:@""];
+	[[NSWorkspace sharedWorkspace] selectFile:[[GrowlPathUtilities runningHelperAppBundle] bundlePath] inFileViewerRootedAtPath:@""];
 }
 - (IBAction) revealSelectionInWorkspace:sender {
 	[[NSWorkspace sharedWorkspace] selectFile:[[arrayController selection] valueForKey:@"path"] inFileViewerRootedAtPath:@""];

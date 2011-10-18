@@ -55,10 +55,14 @@
       self.appIcon = [[NSWorkspace sharedWorkspace] iconForFile:path];
 
       NSBundle *bundle = [NSBundle bundleWithPath:path];
-      self.appVersion = [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-      if (!appVersion)
-         self.appVersion = [bundle objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];;
-      
+      if(bundle)
+      {
+         NSString *version = nil;
+         version = [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+         if (!version)
+            version = [bundle objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];;
+         self.appVersion = version;
+      }
       self.frameworksDir = [[path stringByAppendingPathComponent:@"Contents"] stringByAppendingPathComponent:@"Frameworks"];
       
       relaunchAfterUpgrade = NO;
