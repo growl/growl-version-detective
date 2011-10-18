@@ -8,7 +8,7 @@
 
 #import "GVDFileFinder.h"
 
-@interface GrowlFrameworkFinder : GVDFileFinder {
+@interface GrowlFrameworkFinder : GVDFileFinder <NSMetadataQueryDelegate> {
 	IBOutlet NSArrayController *arrayController;
    IBOutlet NSButton *upgradeButton;
    

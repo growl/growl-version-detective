@@ -8,10 +8,16 @@
 
 #import "GVDFileFinder.h"
 
-@interface GrowlPrefPaneFinder : GVDFileFinder {
+@interface GrowlPrefPaneFinder : GVDFileFinder <NSMetadataQueryDelegate> {
 	NSString *pathToHomeGrowl, *pathToLocalGrowl, *pathToNetworkGrowl;
 	NSString *versionNumberOfHomeGrowl, *versionNumberOfLocalGrowl, *versionNumberOfNetworkGrowl;
+      
+   NSMetadataQuery *query;
+   NSArrayController *arrayController;
+   NSMutableArray *results;
 }
+@property (nonatomic, retain) NSMutableArray *results;
+@property (nonatomic, retain) IBOutlet NSArrayController *arrayController;
 
 - (NSString *) versionNumberOfHomeGrowl;
 - (NSString *) versionNumberOfLocalGrowl;

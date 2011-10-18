@@ -12,12 +12,18 @@
 
 @implementation GrowlPrefPaneFinder
 
-+ (void) initialize {
-	if (self == [GrowlPrefPaneFinder class]) {
-		[self setKeys:[NSArray arrayWithObject:@"pathToHomeGrowl"] triggerChangeNotificationsForDependentKey:@"versionNumberOfHomeGrowl"];
-		[self setKeys:[NSArray arrayWithObject:@"pathToLocalGrowl"] triggerChangeNotificationsForDependentKey:@"versionNumberOfLocalGrowl"];
-		[self setKeys:[NSArray arrayWithObject:@"pathToNetworkGrowl"] triggerChangeNotificationsForDependentKey:@"versionNumberOfNetworkGrowl"];
-	}
+@synthesize arrayController;
+@synthesize results;
+
++ (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString *)key {
+   if([key isEqualToString:@"versionNumberOfHomeGrowl"]){
+      return [NSSet setWithObject:@"pathToHomeGrowl"];
+   }else if([key isEqualToString:@"versionNumberOfLocalGrowl"]){
+      return [NSSet setWithObject:@"pathToLocalGrowl"];
+   }else if([key isEqualToString:@"versionNumberOfNetworkGrowl"]){
+      return [NSSet setWithObject:@"pathToNetworkGrowl"];
+   }else
+      return [super keyPathsForValuesAffectingValueForKey:key];
 }
 
 - (NSString *) localizedTabTitle {
@@ -50,6 +56,46 @@
 		[[wksp iconForFileType:NSFileTypeForHFSTypeCode(kComputerIcon)] setName:@"NSComputer"];
 		[[wksp iconForFileType:NSFileTypeForHFSTypeCode(kGenericNetworkIcon)] setName:@"NSNetwork"];
 	}
+}
+
+- (void) viewDidLoad {
+   query = [[NSMetadataQuery alloc] init];
+	[query setPredicate:[NSPredicate predicateWithFormat:@"(kMDItemContentType = 'com.apple.application-bundle' && kMDItemCFBundleIdentifier = 'com.Growl.GrowlHelperApp')"]];
+	[arrayController setSortDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"version" ascending:YES selector:@selector(localizedCompare:)] autorelease]]];
+	[query setDelegate:self];
+	[self  didChangeValueForKey:@"query"];
+   
+   results = [[NSMutableArray alloc] init];
+   
+	[query startQuery];
+}
+
+- (void) viewDidUnload {
+   [query stopQuery];
+	[view release];
+	view = nil;
+   
+	[query release];
+	query = nil;
+   
+   [results release];
+   results = nil;
+}
+
+-(id) metadataQuery:(NSMetadataQuery *)aQueary replacementObjectForResultObject:(NSMetadataItem *)result {
+   dispatch_async(dispatch_get_main_queue(), ^(void) {
+      NSString *growlPath = [result valueForAttribute:(NSString*)kMDItemPath];
+      NSBundle *bundle = [NSBundle bundleWithPath:growlPath];
+      NSString *growlVersion = [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+      if (!growlVersion)
+         growlVersion = [bundle objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];;
+            
+      NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:growlPath, @"path", growlVersion, @"version", nil];
+      [self willChangeValueForKey:@"results"];
+      [results addObject:dictionary];
+      [self didChangeValueForKey:@"results"];
+   });
+   return nil;
 }
 
 #pragma mark -
