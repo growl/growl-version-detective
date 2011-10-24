@@ -17,6 +17,8 @@
 @synthesize appIcon;
 @synthesize path;
 
+@synthesize displayVersion;
+
 @synthesize activeFramework;
 @synthesize activeFrameworkVersion;
 @synthesize backupFramework;
@@ -24,6 +26,7 @@
 @synthesize frameworksDir;
 
 @synthesize withInstaller;
+@synthesize backupWithInstaller;
 @synthesize relaunchAfterUpgrade;
 
 + (NSString*) defaultFrameworkPath{
@@ -81,10 +84,14 @@
       }else
          self.activeFrameworkVersion = nil;
       
+      [self updateDisplayVersion];
+      
       /* Backup framework */
       self.backupFramework = [NSBundle bundleWithPath:[frameworksDir stringByAppendingPathComponent:@"Growl.framework.bak"]];
       if (!backupFramework) {
          self.backupFramework = [NSBundle bundleWithPath:[frameworksDir stringByAppendingPathComponent:@"Growl-WithInstaller.framework.bak"]];
+         if(backupFramework)
+            backupWithInstaller = YES;
       }
       
       if(backupFramework){
@@ -105,12 +112,22 @@
 	return [NSString stringWithFormat:@"<%@ %p: %@>", [self class], self, path];
 }
 
+- (void) updateDisplayVersion
+{
+   if(withInstaller)
+      self.displayVersion = [NSString stringWithFormat:@"%@ (WI)", activeFrameworkVersion];
+   else
+      self.displayVersion = activeFrameworkVersion;
+}
 
 - (BOOL) isAppRunning {
    return ([[NSRunningApplication runningApplicationsWithBundleIdentifier:appBundleID] count] > 0);
 }
 
 - (BOOL) isFrameworkPathUpgrade:(NSString*)newPath {
+   //We aren't allowing the upgrade of withInstaller frameworks, since it would cause apps to crash
+   if(withInstaller)
+      return NO;
    if(!newPath)
       newPath = [GVDFoundApp defaultFrameworkPath];
    
@@ -128,6 +145,17 @@
 
    __block BOOL success = YES;
    if(relaunchAfterUpgrade){
+      NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:NSLocalizedString(@"%@ is already running", nil), appName]
+                                       defaultButton:NSLocalizedString(@"Quit", nil)
+                                     alternateButton:NSLocalizedString(@"Cancel Upgrade", nil)
+                                         otherButton:nil
+                           informativeTextWithFormat:NSLocalizedString(@"In order for the upgrade to occur, the application must be quit, and relaunched afterwords", nil)];
+      
+      NSInteger returnVal = [alert runModal];
+      
+      if(returnVal == NSAlertAlternateReturn)
+         return NO;
+      
       NSLog(@"Terminating instances of %@", appName);
       [[NSRunningApplication runningApplicationsWithBundleIdentifier:appBundleID] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
          if([obj isKindOfClass:[NSRunningApplication class]]){
@@ -151,6 +179,7 @@
       if(launchError)
          NSLog(@"There was an error relaunching %@ at %@: %@", appName, path, launchError);
    }
+   [self updateDisplayVersion];
 }
 
 - (void) upgradeAppWithFramework:(NSString *)newFWPath
@@ -166,7 +195,7 @@
    NSString *frameworkPath = [activeFramework bundlePath];
    
    if(![self preReplacement]){
-      NSLog(@"There was a problem quitting the application, not upgrading the FW");
+      NSLog(@"Either there was a problem quitting the application, or the user chose not to proceed, not upgrading the FW");
       return;
    }
 
@@ -184,8 +213,7 @@
       }
       self.backupFramework = [NSBundle bundleWithPath:[frameworkPath stringByAppendingString:@".bak"]];
       self.backupFrameworkVersion = activeFrameworkVersion;
-      self.activeFramework = [NSBundle bundleWithPath:newFWPath];
-      self.activeFrameworkVersion = [activeFramework objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+      backupWithInstaller = withInstaller;
    }else{
       NSLog(@"Backup of original already found, upgrading current active framework in place");
       NSError *removeError = nil;
@@ -205,6 +233,8 @@
    if(error){
       NSLog(@"Error moving new framework into place %@", error);
    }
+   self.activeFramework = [NSBundle bundleWithPath:newFWPath];
+   self.activeFrameworkVersion = [activeFramework objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
    [self postReplacement];
 }
 
@@ -236,7 +266,7 @@
       self.activeFrameworkVersion = backupFrameworkVersion;
       self.backupFramework = nil;
       self.backupFrameworkVersion = nil;
-
+      withInstaller = backupWithInstaller;
       [self postReplacement];
    }else{
       NSLog(@"No backup framework found");

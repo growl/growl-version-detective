@@ -14,6 +14,7 @@
 @implementation GrowlFrameworkFinder
 
 @synthesize results;
+@synthesize queryIndicator;
 
 - (NSString *) localizedTabTitle {
 	return NSLocalizedString(@"Framework", /*comment*/ @"Tab title");
@@ -34,9 +35,20 @@
    
    results = [[NSMutableArray alloc] init];
 
+   [queryIndicator startAnimation:self];
+   __block NSProgressIndicator *indicator = queryIndicator;
+   [[NSNotificationCenter defaultCenter] addObserverForName:NSMetadataQueryDidFinishGatheringNotification
+                                                     object:query
+                                                      queue:[NSOperationQueue mainQueue]
+                                                 usingBlock:^(NSNotification *note) {
+                                                    [indicator stopAnimation:nil];
+                                                 }];
 	[query startQuery];
 }
 - (void) viewWillUnload {
+   [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                   name:NSMetadataQueryDidFinishGatheringNotification
+                                                 object:query];
 	[query stopQuery];
 	[view release];
 	view = nil;
@@ -57,14 +69,14 @@
       else
          [upgradeButton setEnabled:NO];
    }else{
-      [upgradeButton setEnabled:YES];
+      [upgradeButton setEnabled:NO];
    }
 }
 
 #pragma mark NSMetadataQuery delegate conformance
 
 -(id) metadataQuery:(NSMetadataQuery *)aQueary replacementObjectForResultObject:(NSMetadataItem *)result {
-   dispatch_async(dispatch_get_main_queue(), ^(void) {
+   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
       GVDFoundApp *app = [[GVDFoundApp alloc] initWithItem:result];
       if([app activeFramework] != nil){
          [self willChangeValueForKey:@"results"];

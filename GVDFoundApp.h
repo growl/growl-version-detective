@@ -13,6 +13,8 @@
    NSImage  *appIcon;
    NSString *path;
    
+   NSString *displayVersion;
+   
    NSBundle *activeFramework;
    NSString *activeFrameworkVersion;
    NSBundle *backupFramework;
@@ -20,6 +22,7 @@
 	NSString *frameworksDir;
    
    BOOL withInstaller;
+   BOOL backupWithInstaller;
    BOOL relaunchAfterUpgrade;
 }
 @property (nonatomic, retain) NSString *appBundleID;
@@ -28,6 +31,8 @@
 @property (nonatomic, retain) NSImage  *appIcon;
 @property (nonatomic, retain) NSString *path;
 
+@property (nonatomic, retain) NSString *displayVersion;
+
 @property (nonatomic, retain) NSBundle *activeFramework;
 @property (nonatomic, retain) NSString *activeFrameworkVersion;
 @property (nonatomic, retain) NSBundle *backupFramework;
@@ -35,6 +40,7 @@
 @property (nonatomic, retain) NSString *frameworksDir;
 
 @property (nonatomic) BOOL withInstaller;
+@property (nonatomic) BOOL backupWithInstaller;
 @property (nonatomic) BOOL relaunchAfterUpgrade;
 
 + (NSString*)defaultFrameworkPath;
@@ -44,6 +50,7 @@
             appName:(NSString*)name;
 - (id) initWithItem:(NSMetadataItem*)item;
 
+- (void) updateDisplayVersion;
 - (BOOL) isAppRunning;
 - (BOOL) isFrameworkPathUpgrade:(NSString*)newPath;
 - (BOOL) preReplacement;
