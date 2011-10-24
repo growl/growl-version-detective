@@ -64,7 +64,8 @@
 
 -(void) tableViewSelectionDidChange:(NSNotification *)notification {
    if([[arrayController selectedObjects] count] > 0){
-      if([[[arrayController selectedObjects] objectAtIndex:0] isFrameworkPathUpgrade:nil])
+      GVDFoundApp *app = [[arrayController selectedObjects] objectAtIndex:0];
+      if([app canUpgrade] && [app isFrameworkPathUpgrade:nil])
          [upgradeButton setEnabled:YES];
       else
          [upgradeButton setEnabled:NO];

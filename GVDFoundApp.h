@@ -21,6 +21,8 @@
    NSString *backupFrameworkVersion;
 	NSString *frameworksDir;
    
+   NSString *upgradeString;
+      
    BOOL withInstaller;
    BOOL backupWithInstaller;
    BOOL relaunchAfterUpgrade;
@@ -39,6 +41,8 @@
 @property (nonatomic, retain) NSString *backupFrameworkVersion;
 @property (nonatomic, retain) NSString *frameworksDir;
 
+@property (nonatomic, retain) NSString *upgradeString;
+
 @property (nonatomic) BOOL withInstaller;
 @property (nonatomic) BOOL backupWithInstaller;
 @property (nonatomic) BOOL relaunchAfterUpgrade;
@@ -52,6 +56,7 @@
 
 - (void) updateDisplayVersion;
 - (BOOL) isAppRunning;
+- (BOOL) canUpgrade;
 - (BOOL) isFrameworkPathUpgrade:(NSString*)newPath;
 - (BOOL) preReplacement;
 - (void) postReplacement;

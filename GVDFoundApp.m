@@ -25,6 +25,8 @@
 @synthesize backupFrameworkVersion;
 @synthesize frameworksDir;
 
+@synthesize upgradeString;
+
 @synthesize withInstaller;
 @synthesize backupWithInstaller;
 @synthesize relaunchAfterUpgrade;
@@ -99,6 +101,8 @@
          self.backupFrameworkVersion = backupVersion;
       }else 
          self.backupFrameworkVersion = nil;
+      
+      self.upgradeString = nil;
    }
    return self;
 }
@@ -124,18 +128,35 @@
    return ([[NSRunningApplication runningApplicationsWithBundleIdentifier:appBundleID] count] > 0);
 }
 
+- (BOOL) canUpgrade
+{
+   BOOL result = YES;
+   if(withInstaller)
+   {
+      self.upgradeString = NSLocalizedString(@"Can't upgrade -withInstaller (WI) framework", nil);
+      result = NO;
+   }
+   else if(![[NSFileManager defaultManager] isWritableFileAtPath:[[activeFramework bundlePath] stringByAppendingPathComponent:@"Growl"]])
+   {
+      self.upgradeString = NSLocalizedString(@"Can't upgrade because we don't have permission", nil);
+      result = NO;
+   }else
+      self.upgradeString = nil;
+   return result;
+}
+
 - (BOOL) isFrameworkPathUpgrade:(NSString*)newPath {
    //We aren't allowing the upgrade of withInstaller frameworks, since it would cause apps to crash
-   if(withInstaller)
-      return NO;
    if(!newPath)
       newPath = [GVDFoundApp defaultFrameworkPath];
    
    NSBundle *newFramework = [NSBundle bundleWithPath:newPath];
    NSString *newVersion = [newFramework objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
    if (compareVersionStrings(activeFrameworkVersion, newVersion) != NSOrderedAscending) {
+      self.upgradeString = [NSString stringWithFormat:NSLocalizedString(@"%@ is not considered an upgrade over %@", nil), newVersion, displayVersion];
       return NO;
-   }
+   }else
+      self.upgradeString = nil;
    return YES;
 }
 
