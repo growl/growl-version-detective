@@ -77,7 +77,7 @@
 #pragma mark NSMetadataQuery delegate conformance
 
 -(id) metadataQuery:(NSMetadataQuery *)aQueary replacementObjectForResultObject:(NSMetadataItem *)result {
-   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+   dispatch_async(dispatch_get_main_queue(), ^(void) {
       GVDFoundApp *app = [[GVDFoundApp alloc] initWithItem:result];
       if([app activeFramework] != nil){
          [self willChangeValueForKey:@"results"];
