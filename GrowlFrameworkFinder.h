@@ -15,8 +15,10 @@
    NSMutableArray *results;
 
 	NSMetadataQuery *query;
+   NSProgressIndicator *queryIndicator;
 }
 
+@property (nonatomic, assign) IBOutlet NSProgressIndicator *queryIndicator;
 @property (nonatomic, retain) NSMutableArray *results;
 
 - (NSString *) growlVersion;
