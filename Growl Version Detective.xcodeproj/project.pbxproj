@@ -18,6 +18,7 @@
 		31876C1C0E32FE0200B83928 /* OSAKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31876C1B0E32FE0200B83928 /* OSAKit.framework */; };
 		31876C4A0E32FE7D00B83928 /* GrowlPrefPaneFinder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31876C480E32FE7D00B83928 /* GrowlPrefPaneFinder.xib */; };
 		31876C770E3300EA00B83928 /* TrashLocalGrowlPrefPane.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 31876C4B0E32FE9D00B83928 /* TrashLocalGrowlPrefPane.applescript */; };
+		83E5700D14588B8600F09B2F /* Top Hat.icns in Resources */ = {isa = PBXBuildFile; fileRef = 83E5700C14588B8600F09B2F /* Top Hat.icns */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -67,6 +68,7 @@
 		31876C490E32FE7D00B83928 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GrowlPrefPaneFinder.xib; sourceTree = "<group>"; };
 		31876C4B0E32FE9D00B83928 /* TrashLocalGrowlPrefPane.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = TrashLocalGrowlPrefPane.applescript; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Growl Version Detective_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Growl Version Detective_Prefix.pch"; sourceTree = "<group>"; };
+		83E5700C14588B8600F09B2F /* Top Hat.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Top Hat.icns"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Growl Version Detective.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Growl Version Detective.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC7FBBBB14536D8800B5CBBE /* GrowlDefinesInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowlDefinesInternal.m; path = "From Growl/GrowlDefinesInternal.m"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		29B97314FDCFA39411CA2CEA /* Growl Version Detective */ = {
 			isa = PBXGroup;
 			children = (
+				83E5700C14588B8600F09B2F /* Top Hat.icns */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -256,6 +259,7 @@
 				31876B410E32501C00B83928 /* GrowlFrameworkFinder.xib in Resources */,
 				31876C4A0E32FE7D00B83928 /* GrowlPrefPaneFinder.xib in Resources */,
 				31876C770E3300EA00B83928 /* TrashLocalGrowlPrefPane.applescript in Resources */,
+				83E5700D14588B8600F09B2F /* Top Hat.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
