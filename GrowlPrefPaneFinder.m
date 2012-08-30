@@ -176,7 +176,7 @@
 - (IBAction) moveHomeGrowlToTrash:sender {
 	NSString *path = [self pathToHomeGrowl];
 
-	int tag = 0;
+	NSInteger tag = 0;
 	[[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
 												 source:[path stringByDeletingLastPathComponent]
 											destination:@""
@@ -197,7 +197,7 @@
 - (IBAction) moveNetworkGrowlToTrash:sender {
 	NSString *path = [self pathToNetworkGrowl];
 
-	int tag = 0;
+	NSInteger tag = 0;
 	[[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
 												 source:[path stringByDeletingLastPathComponent]
 											destination:@""
